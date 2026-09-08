@@ -1,7 +1,7 @@
 # ExplorePlace — Discover the Best of India
 
 <div align="center">
-  <img src="bestlocationfinder/public/assets/exploreplace-nature-3d.png" alt="ExplorePlace scenic travel experience" width="100%" />
+  <img src="bestlocationfinder/public/assets/image.png" alt="ExplorePlace scenic travel experience" width="100%" />
 
   <br />
 
@@ -81,7 +81,8 @@ When many OpenStreetMap records share the same fallback image, the frontend rota
 ## Project Structure
 
 ```text
-BestLocation/
+best-locations-finder/
+
 ├── backend/
 │   ├── config/          # Database and upload configuration
 │   ├── controllers/     # GeoNames, OSM, Google Places and MongoDB logic
@@ -90,14 +91,17 @@ BestLocation/
 │   ├── uploads/         # Locally uploaded images
 │   └── server.js        # Backend entry point
 │
-└── bestlocationfinder/
-    ├── public/          # Static assets
-    └── src/
-        ├── Components/  # Navbar, hero, cards, footer and visual effects
-        ├── data/        # Indian states and sample data
-        ├── pages/       # Public, detail and admin pages
-        ├── App.js       # Client-side routes
-        └── config.js    # Frontend API configuration
+├── bestlocationfinder/
+│   ├── public/          # Static assets
+│   └── src/
+│       ├── Components/  # Navbar, hero, cards, footer and visual effects
+│       ├── data/        # Indian states and sample data
+│       ├── pages/       # Public, detail and admin pages
+│       ├── App.js       # Client-side routes
+│       └── config.js    # Frontend API configuration
+│
+├── .gitignore
+└── README.md
 ```
 
 ## Getting Started
@@ -113,8 +117,8 @@ BestLocation/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd BestLocation
+git clone https://github.com/Gourav7581/best-locations-finder.git
+cd best-locations-finder
 ```
 
 ### 2. Configure the backend
@@ -122,6 +126,7 @@ cd BestLocation
 ```bash
 cd backend
 npm install
+npm run dev
 ```
 
 Create `backend/.env`:
