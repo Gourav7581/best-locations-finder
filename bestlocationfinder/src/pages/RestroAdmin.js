@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Card, Form, Button, Alert } from "react-bootstrap";
+  const API_URL = process.env.REACT_APP_API_URL;
 
 function RestroAdmin() {
   const [states, setStates] = useState([]);
@@ -23,7 +24,7 @@ function RestroAdmin() {
     const fetchStates = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/location/states"
+          `${API_URL}/api/location/states`
         );
 
         const stateList = res.data.map((item) => item.state);
@@ -43,7 +44,7 @@ function RestroAdmin() {
     const fetchCities = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/location/cities/${state}`
+           `${API_URL}/api/location/cities/${state}`
         );
 
         setCities(res.data);
@@ -78,7 +79,7 @@ function RestroAdmin() {
       formData.append("image", image);
 
       await axios.post(
-        "http://localhost:5000/api/data/cafe",
+        `http://${API_URL}/api/data/cafe`,
         formData,
         {
           headers: {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Card, Form, Button, Alert } from "react-bootstrap";
+  const API_URL = process.env.REACT_APP_API_URL;
 
 function HotelAdmin() {
   const [states, setStates] = useState([]);
@@ -24,7 +25,7 @@ function HotelAdmin() {
     const fetchStates = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/location/states"
+          `${API_URL}/api/location/states`
         );
 
         const stateList = res.data.map((item) => item.state);
@@ -44,7 +45,7 @@ function HotelAdmin() {
     const fetchCities = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/location/cities/${state}`
+          `${API_URL}/api/location/cities/${state}`
         );
 
         setCities(res.data);
@@ -80,7 +81,7 @@ function HotelAdmin() {
       formData.append("image", image);
 
       const res = await axios.post(
-        "http://localhost:5000/api/data/hotel",
+       `${API_URL}/api/data/hotel`,
         formData,
         {
           headers: {

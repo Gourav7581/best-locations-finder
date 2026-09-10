@@ -7,6 +7,7 @@ import {
   Button,
   Alert,
 } from "react-bootstrap";
+  const API_URL = process.env.REACT_APP_API_URL;
 
 function LocationAdmin() {
   const [stateName, setStateName] = useState("");
@@ -24,7 +25,7 @@ function LocationAdmin() {
         .filter((city) => city !== "");
 console.log(stateName,cityArray)
       const response = await axios.post(
-        "http://localhost:5000/api/location/create",
+        `${API_URL}/api/location/create`,
         {
           state: stateName,
           cities: cityArray,

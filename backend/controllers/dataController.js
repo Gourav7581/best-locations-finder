@@ -62,7 +62,7 @@ const getPlaces = async (req, res) => {
     const result = data.map((item) => ({
       ...item._doc,
       image: item.image
-        ? `http://localhost:5000/uploads/images/${item.image}`
+        ? `${API_URL}/uploads/images/${item.image}`
         : null,
     }));
 
@@ -82,7 +82,7 @@ const getHotels = async (req, res) => {
     const result = data.map((item) => ({
       ...item._doc,
       image: item.image
-        ? `http://localhost:5000/uploads/images/${item.image}`
+        ?  `${API_URL}/uploads/images/${item.image}`
         : null,
     }));
 
@@ -102,7 +102,7 @@ const getCafes = async (req, res) => {
     const result = data.map((item) => ({
       ...item._doc,
       image: item.image
-        ? `http://localhost:5000/uploads/images/${item.image}`
+        ?  `${API_URL}/uploads/images/${item.image}`
         : null,
     }));
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Card, Form, Button, Alert } from "react-bootstrap";
+  const API_URL = process.env.REACT_APP_API_URL;
 
 function PlaceAdmin() {
   const [states, setStates] = useState([]);
@@ -23,7 +24,7 @@ function PlaceAdmin() {
     const fetchStates = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/location/states"
+          `${API_URL}/api/location/states`
         );
 
         const stateList = res.data.map((item) => item.state);
@@ -43,7 +44,7 @@ function PlaceAdmin() {
     const fetchCities = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/location/cities/${state}`
+          `http://${API_URL}/api/location/cities/${state}`
         );
 
         setCities(res.data);
@@ -78,7 +79,7 @@ function PlaceAdmin() {
       formData.append("image", image);
 
       const res = await axios.post(
-        "http://localhost:5000/api/data/place",
+         `${API_URL}/api/data/place`,
         formData,
         {
           headers: {
